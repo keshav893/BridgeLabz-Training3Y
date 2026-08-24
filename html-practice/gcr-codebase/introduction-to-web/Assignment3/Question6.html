@@ -1,0 +1,212 @@
+Ques 6. Create a CSS-only photo gallery layout with at least 6 images.
+Requirements:
+● Use flexbox or grid to display images in multiple columns.
+● When hovered, each image should:
+○ Slightly scale up (transform: scale(1.1))
+○ Show a caption overlay using position: absolute and opacity.
+● Ensure that the gallery is responsive and adjusts image count per row based on screen
+width.
+● Use CSS box-shadow and border-radius to make images look clean and modern.
+
+
+Ans 6. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6 - CSS-Only Landscape Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #0f172a;
+            --text-title: #f8fafc;
+            --text-desc: #cbd5e1;
+            --accent-glow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-title);
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-header {
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 3.5rem;
+        }
+
+        .gallery-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(to right, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gallery-header p {
+            color: var(--text-desc);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            background-color: #1e293b;
+            cursor: pointer;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .caption-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .gallery-item:hover .caption-overlay {
+            opacity: 1;
+        }
+
+        .caption-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            transform: translateY(10px);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .caption-desc {
+            font-size: 0.9rem;
+            color: var(--text-desc);
+            transform: translateY(15px);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.05s;
+        }
+
+        .gallery-item:hover .caption-title,
+        .gallery-item:hover .caption-desc {
+            transform: translateY(0);
+        }
+
+        .gallery-footer {
+            color: #475569;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="gallery-header">
+        <h1>Visions of Nature</h1>
+        <p>Explore breathtaking landscapes captured in high fidelity. Hover over any image to reveal details.</p>
+    </header>
+
+    <main class="gallery-grid">
+        <article class="gallery-item">
+            <img class="gallery-image" src="images/gallery1.svg" alt="Abstract rendering of an autumn forest with warm orange tones.">
+            <div class="caption-overlay">
+                <h2 class="caption-title">Autumn Forest</h2>
+                <p class="caption-desc">Warm orange and amber woodland hues.</p>
+            </div>
+        </article>
+
+        <article class="gallery-item">
+            <img class="gallery-image" src="images/gallery2.svg" alt="Beautiful sun setting over waves on a purple ocean.">
+            <div class="caption-overlay">
+                <h2 class="caption-title">Ocean Sunset</h2>
+                <p class="caption-desc">A peaceful sunset melting into violet waves.</p>
+            </div>
+        </article>
+
+        <article class="gallery-item">
+            <img class="gallery-image" src="images/gallery3.svg" alt="Crisp mountain peaks capped with clean white snow.">
+            <div class="caption-overlay">
+                <h2 class="caption-title">Snowy Peaks</h2>
+                <p class="caption-desc">Distant sky-scraping mountains covered in ice.</p>
+            </div>
+        </article>
+
+        <article class="gallery-item">
+            <img class="gallery-image" src="images/gallery4.svg" alt="Dark city buildings with glowing square yellow windows at dusk.">
+            <div class="caption-overlay">
+                <h2 class="caption-title">City Lights</h2>
+                <p class="caption-desc">Towering skyscrapers shining against the twilight.</p>
+            </div>
+        </article>
+
+        <article class="gallery-item">
+            <img class="gallery-image" src="images/gallery5.svg" alt="Curved desert dunes under a golden sun.">
+            <div class="caption-overlay">
+                <h2 class="caption-title">Desert Dunes</h2>
+                <p class="caption-desc">Endless rolling sands under a bright midday sun.</p>
+            </div>
+        </article>
+
+        <article class="gallery-item">
+            <img class="gallery-image" src="images/gallery6.svg" alt="Green fields and a flowing river in a valley.">
+            <div class="caption-overlay">
+                <h2 class="caption-title">Emerald Valley</h2>
+                <p class="caption-desc">Lush pastures bisected by a winding stream.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="gallery-footer">
+        <p>&copy; 2026 Nature Portfolio. Built with CSS Grid and flex elements.</p>
+    </footer>
+
+</body>
+</html>
