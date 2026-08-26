@@ -1,0 +1,291 @@
+Ques 2. Design a multi-section informational webpage (for example: “About a City” or “Favorite
+Destination”).
+Requirements:
+● Include a <header>, <nav>, <main>, and <footer>.
+● Each section in <main> should have a full-width background color or image.
+● Apply a linear gradient in one section and a radial gradient in another.
+● Use padding, margins, and border to create spacing and define clear sections.
+● Headings must use different font sizes and weights using CSS.
+● At least two sections must demonstrate background-attachment: fixed; (parallax-like
+effect).
+
+
+Ans 2. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 - Discover Kyoto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f1016;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --primary-red: #ea580c;
+            --accent-gold: #fbbf24;
+            --bamboo-light: #064e3b;
+            --bamboo-bright: #10b981;
+            --border-style: 2px solid rgba(251, 191, 36, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .main-header {
+            background-color: var(--bg-dark);
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(234, 88, 12, 0.3);
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: 12px;
+            color: var(--primary-red);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .main-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .main-nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 16, 22, 0.95);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 1.2rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--accent-gold);
+            background-color: rgba(251, 191, 36, 0.05);
+        }
+
+        .info-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg-1 {
+            background-image: url('images/kyoto-temple.svg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-bottom: var(--border-style);
+        }
+
+        .content-overlay {
+            background-color: rgba(15, 16, 22, 0.85);
+            padding: 3rem;
+            border-radius: 12px;
+            max-width: 800px;
+            border-left: 5px solid var(--accent-gold);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        #pagoda .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .linear-gradient-bg {
+            background: linear-gradient(135deg, var(--bamboo-light) 0%, #022c22 100%);
+            border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .content-box {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        #bamboo .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--bamboo-bright);
+            margin-bottom: 1.5rem;
+        }
+
+        .parallax-bg-2 {
+            background-image: url('images/fushimi-inari.svg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-bottom: 2px solid rgba(234, 88, 12, 0.3);
+        }
+
+        #torii .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f97316;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(234, 88, 12, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        #torii .content-overlay {
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .radial-gradient-bg {
+            background: radial-gradient(circle at center, #2e1009 0%, #0f0503 100%);
+            border-bottom: var(--border-style);
+        }
+
+        #cuisine .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #fb923c;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .main-footer {
+            background-color: #08080c;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+                letter-spacing: 6px;
+            }
+            
+            .main-nav {
+                flex-wrap: wrap;
+            }
+            
+            .nav-item {
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .info-section {
+                padding: 3rem 5%;
+                min-height: 50vh;
+            }
+            
+            .content-overlay {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1 class="main-title">KYOTO</h1>
+        <p class="main-subtitle">The Cultural Heart of Japan</p>
+    </header>
+
+    <nav class="main-nav">
+        <a href="#pagoda" class="nav-item">Kinkaku-ji Temple</a>
+        <a href="#bamboo" class="nav-item">Arashiyama Bamboo</a>
+        <a href="#torii" class="nav-item">Fushimi Inari</a>
+        <a href="#cuisine" class="nav-item">Traditional Cuisine</a>
+    </nav>
+
+    <main>
+        <section id="pagoda" class="info-section parallax-bg-1">
+            <div class="content-overlay">
+                <h2 class="section-title">Kinkaku-ji Temple</h2>
+                <p class="section-desc">
+                    Known as the Golden Pavilion, Kinkaku-ji is a Zen Buddhist temple in northern Kyoto. The top two floors are completely covered in brilliant gold leaf. Overlooking a serene mirror pond, this architectural masterpiece represents the rich Muromachi period design and attracts millions of travelers who seek peace and cultural inspiration.
+                </p>
+            </div>
+        </section>
+
+        <section id="bamboo" class="info-section linear-gradient-bg">
+            <div class="content-box">
+                <h2 class="section-title">Arashiyama Bamboo Forest</h2>
+                <p class="section-desc">
+                    Walking through the towering bamboo groves of Arashiyama feels like stepping into another world. The sun filters through the thick green stalks, casting dancing shadows onto the forest path. The Ministry of the Environment has named the sound of the wind rustling through this bamboo as one of the "100 Soundscapes of Japan".
+                </p>
+            </div>
+        </section>
+
+        <section id="torii" class="info-section parallax-bg-2">
+            <div class="content-overlay">
+                <h2 class="section-title">Fushimi Inari Shrine</h2>
+                <p class="section-desc">
+                    Fushimi Inari-Taisha is Kyoto's most important Shinto shrine, famous for its path of over 10,000 vibrant vermilion Torii gates. Spanning up the sacred Mount Inari, the trails offer a beautiful spiritual hike. The gates are donated by individuals and businesses, each inscribed with the donor's name in hope of prosperity.
+                </p>
+            </div>
+        </section>
+
+        <section id="cuisine" class="info-section radial-gradient-bg">
+            <div class="content-box">
+                <h2 class="section-title">Traditional Kyoto Cuisine</h2>
+                <p class="section-desc">
+                    Kyoto cuisine (Kyo-ryori) is highly celebrated for its delicate flavors, seasonal ingredients, and artistic presentation. From the multi-course dining experience of *Kaiseki* to *Yofu* (tofu-centered meals developed by Zen monks), dining in Kyoto is a complete sensory art form that pays tribute to nature and tradition.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Kyoto Tourism Guide. Designed using semantic layout and advanced CSS background properties.</p>
+    </footer>
+
+</body>
+</html>
