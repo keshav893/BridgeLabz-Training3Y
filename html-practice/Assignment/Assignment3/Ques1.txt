@@ -1,0 +1,301 @@
+Ques 1. Create a personal portfolio homepage using HTML and CSS.
+Requirements:
+● The header should contain your name and navigation links (Home, About, Contact).
+● Use position: fixed for the header so it stays at the top when scrolling.
+● The main section should have a short bio paragraph and a profile image.
+● Use different CSS units (px, em, %, vh, rem) across elements.
+● Use custom background color and text color combinations that maintain contrast.
+● The footer should always stay at the bottom of the page (use flexbox or positioning).
+
+
+
+Ans 1. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Personal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-purple: #a78bfa;
+            --btn-hover: #0284c7;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4.5rem;
+            background-color: rgba(30, 41, 59, 0.95);
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .accent-text {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-blue);
+        }
+
+        .portfolio-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 4.5rem;
+            width: 100%;
+        }
+
+        .hero-section {
+            width: 85%;
+            max-width: 1200px;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .greeting {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .bio-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85em 2em;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #000;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--btn-hover);
+            border-color: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-image-wrapper {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-image:hover {
+            transform: rotate(3deg) scale(1.05);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 968px) {
+            .hero-section {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+                padding: 4rem 0 2rem 0;
+            }
+            
+            .hero-content {
+                align-items: center;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .bio-text {
+                margin-bottom: 2rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="accent-text">&lt;</span>Shailly<span class="accent-text">/&gt;</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <main class="portfolio-container" id="home">
+        <section class="hero-section" id="about">
+            <div class="hero-content">
+                <span class="greeting">Hello, I'm</span>
+                <h1 class="hero-title">Shailly Bhardwaj</h1>
+                <p class="hero-subtitle">Software Developer & Web Enthusiast</p>
+                <p class="bio-text">
+                    I am a passionate software developer specializing in building modern, accessible, and high-performance web applications. With a strong foundation in frontend architectures, semantic layouts, and clean CSS designs, I strive to create web solutions that offer exceptional user experiences.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <svg class="profile-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                    <defs>
+                        <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6" />
+                            <stop offset="100%" stop-color="#8b5cf6" />
+                        </linearGradient>
+                        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1e1b4b" />
+                            <stop offset="100%" stop-color="#0f172a" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="95" fill="url(#bgGrad)" stroke="url(#avatarGrad)" stroke-width="4" />
+                    <path d="M50 165 C50 130, 80 120, 100 120 C120 120, 150 130, 150 165 C150 175, 140 180, 100 180 C60 180, 50 175, 50 165 Z" fill="#475569" />
+                    <circle cx="100" cy="80" r="30" fill="#cbd5e1" />
+                    <path d="M70 140 L130 140 L140 180 L60 180 Z" fill="#1e293b" opacity="0.9" />
+                    <text x="100" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle" font-weight="bold">&lt;/&gt;</text>
+                </svg>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Shailly Bhardwaj. Built with passion & semantic HTML.</p>
+    </footer>
+</body>
+</html>

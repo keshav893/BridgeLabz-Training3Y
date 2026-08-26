@@ -1,0 +1,201 @@
+Ques 4. Create a long article webpage with the following structure:
+● Header → Article Title
+● Subheading → Author name and publication date
+● Body → At least 5 paragraphs of dummy text
+Use CSS to:
+● Add consistent spacing between paragraphs using margins.
+● Style the first letter of each paragraph with a larger font using ::first-letter.
+● Make the first line of each paragraph bold using ::first-line.
+● Highlight key words using <mark> and style it with custom background color.
+● Add a left border and background color to emphasize the blockquote section.
+
+Ans 4. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4 - The Evolution of CSS Layouts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #334155;
+            --text-title: #0f172a;
+            --accent: #2563eb;
+            --accent-glow: #bfdbfe;
+            --blockquote-bg: #f1f5f9;
+            --blockquote-border: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.8;
+            padding: 4rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .article-container {
+            max-width: 780px;
+            width: 100%;
+            background-color: var(--bg-card);
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .article-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-title);
+            line-height: 1.3;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-meta {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--text-title);
+        }
+
+        .article-body p {
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .article-body p::first-line {
+            font-weight: bold;
+            color: var(--text-title);
+        }
+
+        .article-body p::first-letter {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            float: left;
+            line-height: 0.85;
+            margin-right: 8px;
+            margin-top: 4px;
+        }
+
+        mark.highlight {
+            background-color: var(--accent-glow);
+            color: #1e3a8a;
+            font-weight: 500;
+            padding: 0.1em 0.35em;
+            border-radius: 4px;
+        }
+
+        .article-body blockquote {
+            font-family: 'Lora', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: #1e293b;
+            background-color: var(--blockquote-bg);
+            border-left: 5px solid var(--blockquote-border);
+            padding: 1.8rem 2.2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .article-body blockquote::before {
+            content: "“";
+            font-size: 4rem;
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            color: rgba(59, 130, 246, 0.15);
+            font-family: serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            
+            .article-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-body p {
+                font-size: 1.05rem;
+            }
+            
+            .article-body blockquote {
+                font-size: 1.2rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="article-container">
+        <article class="blog-post">
+            <header class="article-header">
+                <h1 class="article-title">The Renaissance of CSS: From Tables to Modern Layouts</h1>
+                <div class="article-meta">
+                    By <span class="author-name">Rachel Andrew</span> &bull; Published on <time datetime="2026-08-24">August 24, 2026</time>
+                </div>
+            </header>
+
+            <div class="article-body">
+                <p>
+                    For decades, web designers struggled to structure layouts effectively. In the early days of the web, layout design was primitive. Developers hijacked <mark class="highlight">HTML tables</mark> to force grids, slicing images into tiny shards to achieve columned layouts. This hacky method bloated the markup, ruined accessibility, and made maintenance a complete nightmare.
+                </p>
+
+                <p>
+                    Then came the era of floats. Originally designed for simple tasks, like letting an image sit on the side of text, <mark class="highlight">CSS floats</mark> became the default grid mechanism for over a decade. Developers spent hours writing complex clearing hacks (remember the infamous *clearfix*?) to prevent parent containers from collapsing. Although it worked, float-based layouts felt fragile and often broke with minor content changes.
+                </p>
+
+                <blockquote>
+                    "The web is a fluid medium. Designing for it requires tools that respect its inherently flexible nature, rather than forcing it into rigid desktop grids."
+                </blockquote>
+
+                <p>
+                    Flexbox introduced a new paradigm. Released in CSS3, the <mark class="highlight">Flexible Box Layout Module</mark> allowed elements to dynamically grow, shrink, and align along a single axis. It solved alignment nightmares almost overnight. Tasks like vertical centering, spacing distributions, and order manipulation—which previously required complex JavaScript—became trivial, single-line CSS rules.
+                </p>
+
+                <p>
+                    Grid systems took layouts to the second dimension. While Flexbox is ideal for one-dimensional components, <mark class="highlight">CSS Grid Layout</mark> provides true two-dimensional controls. By dividing a page into columns and rows, Grid allows developers to build intricate, asymmetric, and responsive grid layouts without relying on nested wrapper elements, simplifying responsive adjustments enormously.
+                </p>
+
+                <p>
+                    Today, the combination of Flexbox and Grid allows us to build layouts that are clean, lightweight, and robust. Modern web layouts adapt seamlessly to different devices. As CSS evolves, designers are empowered to build layout frameworks that are not only aesthetically stunning but also fully accessible, semantic, and highly performant.
+                </p>
+            </div>
+        </article>
+    </div>
+
+</body>
+</html>

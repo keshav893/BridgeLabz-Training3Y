@@ -1,0 +1,357 @@
+Ques5. Design a pricing table with three pricing plans: Basic, Standard, and Premium.
+Requirements:
+● Use flexbox or grid to create three equal columns.
+● Add a hover effect on each plan that slightly enlarges the box and changes background
+color.
+● Use CSS transitions for smooth hover animations.
+● Each plan should have:
+○ A heading (plan name)
+○ A list of features
+○ A price section
+○ A button (styled link using <a>).
+● Use different border styles or colors to highlight the most popular plan.
+● All boxes should maintain equal height even when text varies.
+
+
+Ans 5. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5 - SaaS Pricing Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #090d16;
+            --bg-card: #111827;
+            --bg-popular: #1e1b4b;
+            
+            --text-title: #f9fafb;
+            --text-sub: #9ca3af;
+            
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-popular: #a78bfa;
+            
+            --border-normal: 1px solid #374151;
+            --border-popular: 2px solid #8b5cf6;
+            
+            --shadow-normal: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-popular: 0 10px 30px rgba(139, 92, 246, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-title);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 650px;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #f9fafb 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pricing-header p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+            width: 100%;
+            max-width: 1100px;
+            align-items: stretch;
+            margin-bottom: 3.5rem;
+        }
+
+        .pricing-card {
+            background-color: var(--bg-card);
+            border: var(--border-normal);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-normal);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background-color: #1f2937;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-blue);
+        }
+
+        .pricing-card.popular-plan {
+            background-color: var(--bg-popular);
+            border: var(--border-popular);
+            box-shadow: var(--shadow-popular);
+        }
+
+        .pricing-card.popular-plan:hover {
+            background-color: #2e1065;
+            box-shadow: 0 20px 45px rgba(139, 92, 246, 0.4);
+            border-color: #a78bfa;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-purple);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.35rem 1.2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.35);
+        }
+
+        .card-header {
+            margin-bottom: 1.8rem;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .plan-tagline {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 2rem;
+        }
+
+        .currency {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .popular-plan .currency {
+            color: var(--accent-popular);
+        }
+
+        .price-amount {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0 0.1rem;
+        }
+
+        .billing-cycle {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .features-list li {
+            font-size: 0.95rem;
+            color: #d1d5db;
+            margin-bottom: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .popular-plan .features-list li::before {
+            color: var(--accent-popular);
+        }
+
+        .cta-button {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: transparent;
+            color: var(--text-title);
+            border: 2px solid var(--border-normal);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .cta-button {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .popular-plan .cta-button {
+            background-color: var(--accent-purple);
+            color: #ffffff;
+            border: 2px solid var(--accent-purple);
+        }
+
+        .popular-plan:hover .cta-button {
+            background-color: #7c3aed;
+            border-color: #7c3aed;
+            color: #ffffff;
+        }
+
+        .pricing-footer {
+            text-align: center;
+            color: #4b5563;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .pricing-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 0 1rem;
+            }
+            
+            .pricing-card {
+                max-width: 450px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            
+            .pricing-card.popular-plan {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular-plan:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="pricing-header">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the plan that fits your needs. Scale up or down as your business grows.</p>
+    </header>
+
+    <main class="pricing-container">
+        <section class="pricing-card">
+            <div class="card-header">
+                <h2 class="plan-name">Basic</h2>
+                <p class="plan-tagline">Essential tools for individuals</p>
+            </div>
+            
+            <div class="price-section">
+                <span class="currency">$</span>
+                <span class="price-amount">15</span>
+                <span class="billing-cycle">/mo</span>
+            </div>
+            
+            <ul class="features-list">
+                <li>1 User Account</li>
+                <li>10GB Cloud Storage</li>
+                <li>Access to Core Features</li>
+                <li>Email Support (24h response)</li>
+            </ul>
+            
+            <a href="#" class="cta-button">Get Started</a>
+        </section>
+
+        <section class="pricing-card popular-plan">
+            <div class="popular-badge">Most Popular</div>
+            <div class="card-header">
+                <h2 class="plan-name">Standard</h2>
+                <p class="plan-tagline">Perfect for growing teams</p>
+            </div>
+            
+            <div class="price-section">
+                <span class="currency">$</span>
+                <span class="price-amount">39</span>
+                <span class="billing-cycle">/mo</span>
+            </div>
+            
+            <ul class="features-list">
+                <li>5 User Accounts</li>
+                <li>100GB Cloud Storage</li>
+                <li>Advanced Dashboard Analytics</li>
+                <li>Priority Email &amp; Chat Support</li>
+                <li>Integrations with 10+ third-party tools</li>
+            </ul>
+            
+            <a href="#" class="cta-button">Choose Standard</a>
+        </section>
+
+        <section class="pricing-card">
+            <div class="card-header">
+                <h2 class="plan-name">Premium</h2>
+                <p class="plan-tagline">Full power for large companies</p>
+            </div>
+            
+            <div class="price-section">
+                <span class="currency">$</span>
+                <span class="price-amount">89</span>
+                <span class="billing-cycle">/mo</span>
+            </div>
+            
+            <ul class="features-list">
+                <li>Unlimited User Accounts</li>
+                <li>1TB Cloud Storage</li>
+                <li>Real-time Collaboration features</li>
+                <li>Dedicated Account Specialist</li>
+                <li>24/7 Telephone &amp; API Support</li>
+                <li>Custom branding controls</li>
+            </ul>
+            
+            <a href="#" class="cta-button">Get Premium</a>
+        </section>
+    </main>
+
+    <footer class="pricing-footer">
+        <p>All prices exclude local sales taxes. Cancel subscription anytime.</p>
+    </footer>
+
+</body>
+</html>
