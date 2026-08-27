@@ -1,0 +1,78 @@
+Ques 4. Create a Company Layout Page using only block-level elements:
+● <header> → Company name
+● <nav> → Navigation links
+● <main> → Two <section>s:
+○ About the company
+○ Services offered (list)
+● <aside> → Display a blockquote from the company’s CEO.
+● <footer> → Contact email and address.
+
+
+
+Ans 4. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Company</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Bright Tech Solutions</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a> |
+    <a href="#">About</a> |
+    <a href="#">Services</a> |
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+
+    <section>
+        <h2>About Our Company</h2>
+
+        <p>
+            Bright Tech Solutions is a software company that helps
+            businesses create websites, mobile applications and
+            other digital solutions.
+        </p>
+    </section>
+
+    <section>
+        <h2>Our Services</h2>
+
+        <ul>
+            <li>Website Development</li>
+            <li>Mobile App Development</li>
+            <li>Software Development</li>
+            <li>Cloud Services</li>
+            <li>Technical Support</li>
+        </ul>
+    </section>
+
+</main>
+
+<aside>
+
+    <h2>Message from our CEO</h2>
+
+    <blockquote>
+        "Our goal is to use technology to solve real problems
+        and make everyday work easier."
+    </blockquote>
+
+    <p>— Rahul Sharma, CEO</p>
+
+</aside>
+
+<footer>
+    <p>Email: contact@brighttech.com</p>
+    <p>Address: Mathura, Uttar Pradesh, India</p>
+</footer>
+
+</body>
+</html>

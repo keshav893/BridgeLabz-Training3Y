@@ -1,0 +1,85 @@
+Ques 7. 7. Design a Conference Schedule page using HTML tables and semantic tags.
+The table should have:
+● Sessions (Morning, Afternoon, Evening)
+● Columns for Time, Topic, Speaker
+● Use <thead>, <tbody>, and <tfoot> for structure.
+
+
+
+
+Ans 7. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Schedule</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Technology Conference 2026</h1>
+</header>
+
+<table border="1">
+
+    <caption>Conference Schedule</caption>
+
+    <thead>
+
+        <tr>
+            <th>Session</th>
+            <th>Time</th>
+            <th>Topic</th>
+            <th>Speaker</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>Morning</td>
+            <td>9:00 AM</td>
+            <td>Introduction to Artificial Intelligence</td>
+            <td>Dr. Amit Sharma</td>
+        </tr>
+
+        <tr>
+            <td>Morning</td>
+            <td>11:00 AM</td>
+            <td>Cloud Computing</td>
+            <td>Mr. Raj Verma</td>
+        </tr>
+
+        <tr>
+            <td>Afternoon</td>
+            <td>2:00 PM</td>
+            <td>Cyber Security</td>
+            <td>Ms. Priya Singh</td>
+        </tr>
+
+        <tr>
+            <td>Evening</td>
+            <td>5:00 PM</td>
+            <td>Future of Technology</td>
+            <td>Dr. Neha Gupta</td>
+        </tr>
+
+    </tbody>
+
+    <tfoot>
+
+        <tr>
+            <td colspan="4">
+                Conference will end at 6:00 PM.
+            </td>
+        </tr>
+
+    </tfoot>
+
+</table>
+
+</body>
+</html>

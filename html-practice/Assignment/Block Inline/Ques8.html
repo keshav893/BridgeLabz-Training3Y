@@ -1,0 +1,78 @@
+Ques 8. 8. Create a Student Report Page:
+● <h1> for school name.
+● <table> for marks of 5 subjects.
+● Add a row that shows Total and Percentage (no calculation needed, just text).
+● Use attributes like rowspan, colspan, and title to improve clarity.
+
+
+Ans 8. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report</title>
+</head>
+
+<body>
+
+<h1>GLA University</h1>
+
+<h2>Student Report Card</h2>
+
+<table border="1" title="Marks obtained by the student">
+
+    <tr>
+        <th rowspan="2">Subject</th>
+        <th colspan="2">Marks</th>
+    </tr>
+
+    <tr>
+        <th>Maximum Marks</th>
+        <th>Obtained Marks</th>
+    </tr>
+
+    <tr>
+        <td title="English subject">English</td>
+        <td>100</td>
+        <td>85</td>
+    </tr>
+
+    <tr>
+        <td title="Mathematics subject">Mathematics</td>
+        <td>100</td>
+        <td>90</td>
+    </tr>
+
+    <tr>
+        <td title="Physics subject">Physics</td>
+        <td>100</td>
+        <td>82</td>
+    </tr>
+
+    <tr>
+        <td title="Computer Science subject">Computer Science</td>
+        <td>100</td>
+        <td>95</td>
+    </tr>
+
+    <tr>
+        <td title="Data Structures subject">Data Structures</td>
+        <td>100</td>
+        <td>88</td>
+    </tr>
+
+    <tr>
+        <th colspan="2">Total</th>
+        <td>440 / 500</td>
+    </tr>
+
+    <tr>
+        <th colspan="2">Percentage</th>
+        <td>88%</td>
+    </tr>
+
+</table>
+
+</body>
+</html>

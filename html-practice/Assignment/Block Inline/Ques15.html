@@ -1,0 +1,124 @@
+Ques 15. Build a Portfolio Layout Page using HTML only:
+● <header> → Your name and role
+● <nav> → Navigation links
+● <main> →
+○ <section> “About Me” (paragraph + quote)
+○ <section> “Skills” (unordered list)
+○ <section> “Projects” (ordered list or table)
+● <aside> → Contact Info (email, phone, LinkedIn link)
+● <footer> → Closing copyright line
+
+
+
+
+Ans 15. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keshav Portfolio</title>
+</head>
+
+<body>
+
+<header>
+
+    <h1>Keshav</h1>
+
+    <p>
+        B.Tech Student | Web Development Learner
+    </p>
+
+</header>
+
+<nav>
+
+    <a href="#about">About Me</a> |
+    <a href="#skills">Skills</a> |
+    <a href="#projects">Projects</a> |
+    <a href="#contact">Contact</a>
+
+</nav>
+
+<main>
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            My name is Keshav and I am currently pursuing B.Tech.
+            I am interested in programming, web development and
+            learning new technologies. I enjoy creating small
+            projects that help me improve my practical skills.
+        </p>
+
+        <blockquote>
+            "The best way to learn programming is to practice it."
+        </blockquote>
+
+    </section>
+
+    <section id="skills">
+
+        <h2>Skills</h2>
+
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Java</li>
+            <li>Git and GitHub</li>
+            <li>Problem Solving</li>
+        </ul>
+
+    </section>
+
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+        <ol>
+            <li>Personal Portfolio Website</li>
+            <li>Student Management System</li>
+            <li>Online Product Catalog</li>
+            <li>Restaurant Menu Page</li>
+        </ol>
+
+    </section>
+
+</main>
+
+<aside id="contact">
+
+    <h2>Contact Information</h2>
+
+    <p>
+        Email:
+        <a href="mailto:keshav@gmail.com">
+            keshav@gmail.com
+        </a>
+    </p>
+
+    <p>
+        Phone: +91 9876543210
+    </p>
+
+    <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/">
+            Keshav's LinkedIn
+        </a>
+    </p>
+
+</aside>
+
+<footer>
+
+    <p>
+        &copy; 2026 Keshav. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
