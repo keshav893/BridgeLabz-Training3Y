@@ -1,0 +1,46 @@
+Ques 15. Create a Payment Form with fields for:
+● Cardholder Name
+● Card Number
+● Expiry Date
+● CVV
+Add the required attribute to all fields and include a “Pay Now” button.
+
+
+
+Ans 15. <!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Form</title>
+</head>
+<body>
+
+<h2>Payment Form</h2>
+
+<form>
+
+    Cardholder Name:
+    <input type="text" name="name" required>
+
+    <br><br>
+
+    Card Number:
+    <input type="text" name="card" required>
+
+    <br><br>
+
+    Expiry Date:
+    <input type="month" name="expiry" required>
+
+    <br><br>
+
+    CVV:
+    <input type="password" name="cvv" required>
+
+    <br><br>
+
+    <input type="submit" value="Pay Now">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+Ques 16. Create a webpage that demonstrates URI encoding.
+Add a hyperlink that includes special characters in its URL, for example:
+https://example.com/search?query=HTML & CSS
+Write the correct encoded version of this link using %20 for spaces.
+
+
+
+Ans 16. <!DOCTYPE html>
+<html>
+<head>
+    <title>URI Encoding</title>
+</head>
+<body>
+
+<h2>URI Encoding</h2>
+
+<a href="https://example.com/search?query=HTML%20%26%20CSS">
+    Search HTML &amp; CSS
+</a>
+
+</body>
+</html>

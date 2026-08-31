@@ -1,0 +1,37 @@
+Ques 7. Build a Login Form with fields for username and password.
+Add a hidden input field with a dummy CSRF token value.
+Write an HTML comment explaining the purpose of a CSRF token.
+
+
+
+Ans 7.<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<h2>Login Form</h2>
+
+<form>
+
+    Username:
+    <input type="text" name="username">
+
+    <br><br>
+
+    Password:
+    <input type="password" name="password">
+
+    <br><br>
+
+    <!-- CSRF token helps protect a form from unwanted requests -->
+
+    <input type="hidden" name="token" value="abc123">
+
+    <input type="submit" value="Login">
+
+</form>
+
+</body>
+</html>

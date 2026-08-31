@@ -1,0 +1,31 @@
+Ques 5. Create a web page that includes a complete <head> section with:
+● <meta charset="UTF-8">
+● <meta name="author">
+● <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+● <title>
+Below, add a paragraph with English, Hindi, and Japanese text to verify UTF-8 encoding.
+
+
+
+Ans 5. <!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="author" content="Keshav">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UTF-8 Example</title>
+
+</head>
+<body>
+
+<p>
+    English: Welcome to my website.<br>
+    Hindi: मेरी वेबसाइट में आपका स्वागत है।<br>
+    Japanese: 私のウェブサイトへようこそ。
+</p>
+
+</body>
+</html>

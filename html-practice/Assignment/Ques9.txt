@@ -1,0 +1,27 @@
+Ques 9. Create a File Upload Form where users can upload only .jpg or .png files.
+Use the accept attribute to restrict file types.
+Include a short note in a <p> tag describing what kind of files are allowed.
+
+
+
+Ans 9. <!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File</title>
+</head>
+<body>
+
+<h2>Upload Image</h2>
+
+<form>
+
+    <input type="file" name="image" accept=".jpg,.png">
+
+    <p>Only JPG and PNG files are allowed.</p>
+
+    <input type="submit" value="Upload">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+Ques 19. Create a web page demonstrating HTML form security attributes:
+● Add autocomplete="off" to the form.
+● Use required on all input fields.
+Below the form, write a note explaining why turning off autocomplete can improve
+security.
+
+
+
+Ans 19. <!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Form</title>
+</head>
+<body>
+
+<h2>Login Form</h2>
+
+<form autocomplete="off">
+
+    Username:
+    <input type="text" name="username" required>
+
+    <br><br>
+
+    Email:
+    <input type="email" name="email" required>
+
+    <br><br>
+
+    Password:
+    <input type="password" name="password" required>
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<p>
+    Turning off autocomplete can help prevent the browser
+    from automatically saving or filling sensitive information.
+</p>
+
+</body>
+</html>

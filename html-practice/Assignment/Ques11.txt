@@ -1,0 +1,48 @@
+Ques 11. Design a form that collects student information — Name, Roll Number, and Course.
+Use a <select> dropdown for choosing a course.
+Include an option that says “Select Course” as default (disabled and selected).
+
+
+
+Ans 11. <!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information</title>
+</head>
+<body>
+
+<h2>Student Information</h2>
+
+<form>
+
+    Name:
+    <input type="text" name="name">
+
+    <br><br>
+
+    Roll Number:
+    <input type="text" name="roll">
+
+    <br><br>
+
+    Course:
+
+    <select name="course">
+
+        <option selected disabled>Select Course</option>
+
+        <option>B.Tech</option>
+        <option>BCA</option>
+        <option>MCA</option>
+        <option>BBA</option>
+
+    </select>
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

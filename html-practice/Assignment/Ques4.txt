@@ -1,0 +1,37 @@
+Ques 4. Create a frameset layout using <frameset> and <frame> tags:
+● Top frame → Navigation links (Home, About, Contact)
+● Bottom frame → Displays a message “Welcome to My Website”
+(Use only HTML — no CSS.)
+
+Ans 4. 
+<html>
+
+<frameset rows="30%,70%">
+
+    <frame src="nav.html">
+
+    <frame src="welcome.html">
+
+</frameset>
+
+</html>
+
+
+<html>
+<body>
+
+<a href="#">Home</a> |
+<a href="#">About</a> |
+<a href="#">Contact</a>
+
+</body>
+</html>
+
+
+<html>
+<body>
+
+<h1>Welcome to My Website</h1>
+
+</body>
+</html>

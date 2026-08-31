@@ -1,0 +1,27 @@
+Ques 14. Use an <iframe> to embed an external website (e.g., https://www.wikipedia.org).
+Below it, write a paragraph saying:
+“Some websites may not allow embedding for security reasons.”
+
+
+
+Ans 14. <!DOCTYPE html>
+<html>
+<head>
+    <title>Wikipedia</title>
+</head>
+<body>
+
+<h2>Wikipedia</h2>
+
+<iframe
+    src="https://www.wikipedia.org"
+    width="80%"
+    height="400">
+</iframe>
+
+<p>
+    Some websites may not allow embedding for security reasons.
+</p>
+
+</body>
+</html>

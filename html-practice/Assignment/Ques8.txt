@@ -1,0 +1,53 @@
+Ques 8. Design a Feedback Form that includes:
+● A textarea for feedback
+● Radio buttons for rating (Good, Average, Poor)
+● A submit button
+Use method="post" and action="#".
+
+
+
+Ans 8. 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+</head>
+<body>
+
+<h2>Feedback Form</h2>
+
+<form method="post" action="#">
+
+    Feedback:
+    <br>
+
+    <textarea name="feedback" rows="5" cols="40"></textarea>
+
+    <br><br>
+
+    Rating:
+
+    <br>
+
+    <input type="radio" name="rating" value="Good">
+    Good
+
+    <br>
+
+    <input type="radio" name="rating" value="Average">
+    Average
+
+    <br>
+
+    <input type="radio" name="rating" value="Poor">
+    Poor
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

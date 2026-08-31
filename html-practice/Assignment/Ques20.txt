@@ -1,0 +1,51 @@
+Ques 20. Create a page that includes all important <head> elements:
+● <title>
+● <meta> (charset, description, author)
+● <base> (to set base URL)
+● <link> (to favicon or other resource)
+● <style> (can be empty)
+● <script> (can be empty)
+Add comments explaining what each tag is used for.
+
+
+
+
+Ans 20. <!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Title of the webpage -->
+    <title>My Web Page</title>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Description of the webpage -->
+    <meta name="description" content="My simple webpage">
+
+    <!-- Name of the author -->
+    <meta name="author" content="Keshav">
+
+    <!-- Base URL for relative links -->
+    <base href="https://example.com/">
+
+    <!-- Used for favicon or other external resources -->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Used for writing CSS -->
+    <style>
+    </style>
+
+    <!-- Used for JavaScript -->
+    <script>
+    </script>
+
+</head>
+<body>
+
+<h1>My Web Page</h1>
+
+<p>This page contains important head elements.</p>
+
+</body>
+</html>

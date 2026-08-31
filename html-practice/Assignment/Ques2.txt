@@ -1,0 +1,26 @@
+Ques 2. Embed a Google Map showing your school or city using an <iframe>.
+Use title, width, height, and loading="lazy"
+
+
+
+Ans 2. <!DOCTYPE html>
+<html>
+<head>
+    <title>My City Map</title>
+</head>
+<body>
+
+<h2>My City</h2>
+
+<iframe
+    src="https://www.google.com/maps?q=Delhi&output=embed"
+    title="Google Map"
+    width="80%"
+    height="400"
+    loading="lazy">
+</iframe>
+
+<!-- lazy means the map loads when it is near the visible part of the page -->
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+Ques 3. Create an HTML file with two iframes displayed one below another:
+● The first iframe should display your introduction page.
+● The second iframe should display your favorite hobby page.
+Use width and height attributes to make them look balanced.
+
+
+
+Ans 3. <!DOCTYPE html>
+<html>
+<head>
+    <title>Two Iframes</title>
+</head>
+<body>
+
+<h2>Introduction</h2>
+
+<iframe
+    src="introduction.html"
+    width="80%"
+    height="200">
+</iframe>
+
+<h2>My Hobby</h2>
+
+<iframe
+    src="hobby.html"
+    width="80%"
+    height="200">
+</iframe>
+
+</body>
+</html>

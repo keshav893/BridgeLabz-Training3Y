@@ -1,0 +1,27 @@
+Ques 18. Write a paragraph that includes both long and short quotations:
+● Use <blockquote> for a long quote.
+● Use <q> for a short quote inside another paragraph.
+Also include one HTML entity in the quote (e.g., &amp;, &lt;).
+
+
+
+Ans 18. <!DOCTYPE html>
+<html>
+<head>
+    <title>Quotes</title>
+</head>
+<body>
+
+<h2>Quotation Example</h2>
+
+<blockquote>
+    Hard work &amp; dedication are important for success.
+    We should always keep learning and improving ourselves.
+</blockquote>
+
+<p>
+    My teacher said, <q>Practice makes a person better.</q>
+</p>
+
+</body>
+</html>
