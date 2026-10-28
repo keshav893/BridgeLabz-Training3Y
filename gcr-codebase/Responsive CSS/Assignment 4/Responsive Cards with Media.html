@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cards</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            padding: 25px;
+            text-align: center;
+            background: #0f172a;
+            color: white;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            padding: 30px;
+        }
+
+        .card {
+            flex: 1 1 calc(25% - 22px);
+            min-width: 0;
+            padding: 25px 18px;
+            border-radius: 12px;
+            background: #dbeafe;
+            box-shadow: 0 4px 12px #00000012;
+            transition: background 0.3s ease,
+                        transform 0.3s ease;
+        }
+
+        .card:hover {
+            background: #bfdbfe;
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #1d4ed8;
+        }
+
+        footer {
+            padding: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .card {
+                flex: 1 1 calc(50% - 22px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .card {
+                width: 100%;
+                flex: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Responsive Card Layout</h1>
+        <p>Resize the browser to see the layout change.</p>
+    </header>
+
+    <main class="card-container">
+        <section class="card">
+            <h2>HTML</h2>
+            <p>HTML provides the structure of a webpage.</p>
+        </section>
+
+        <section class="card">
+            <h2>CSS</h2>
+            <p>CSS controls colors, spacing, layout, and appearance.</p>
+        </section>
+
+        <section class="card">
+            <h2>Flexbox</h2>
+            <p>Flexbox helps arrange elements in rows or columns.</p>
+        </section>
+
+        <section class="card">
+            <h2>Media Queries</h2>
+            <p>Media queries adapt the layout to screen sizes.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Responsive Design Practice</p>
+    </footer>
+</body>
+</html>

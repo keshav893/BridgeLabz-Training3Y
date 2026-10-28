@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Cards with Animation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        header {
+            padding: 25px;
+            text-align: center;
+            background: #172554;
+            color: white;
+        }
+
+        .profiles {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 35px 20px;
+        }
+
+        .profile-card {
+            flex: 1 1 250px;
+            max-width: 350px;
+            overflow: hidden;
+            text-align: center;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px #00000012;
+            animation: fadeIn 0.9s ease-in-out both;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .profile-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .profile-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px #00000020;
+        }
+
+        .profile-card img {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+
+        .profile-card:nth-child(2) img {
+            filter: sepia(90%);
+        }
+
+        .profile-card:nth-child(3) img {
+            filter: brightness(65%);
+        }
+
+        .profile-card:hover img {
+            filter: none;
+        }
+
+        .profile-info {
+            padding: 20px;
+        }
+
+        .profile-info h2 {
+            margin-top: 0;
+            color: #1d4ed8;
+        }
+
+        footer {
+            padding: 15px;
+            text-align: center;
+            background: #e2e8f0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 799px) {
+            .profiles {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-card {
+                width: 100%;
+                max-width: 450px;
+                flex: auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .profile-card {
+                animation: none;
+                transition: none;
+            }
+
+            .profile-card img {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Our Team</h1>
+        <p>Meet the people behind our work.</p>
+    </header>
+
+    <main class="profiles">
+        <article class="profile-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
+                 alt="Portrait of a team member">
+            <div class="profile-info">
+                <h2>Rahul Sharma</h2>
+                <p>Web Designer</p>
+                <p>Creates clean and user-friendly designs.</p>
+            </div>
+        </article>
+
+        <article class="profile-card">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80"
+                 alt="Portrait of a team member">
+            <div class="profile-info">
+                <h2>Priya Verma</h2>
+                <p>UI Developer</p>
+                <p>Builds responsive and accessible interfaces.</p>
+            </div>
+        </article>
+
+        <article class="profile-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"
+                 alt="Portrait of a team member">
+            <div class="profile-info">
+                <h2>Aman Singh</h2>
+                <p>Frontend Developer</p>
+                <p>Turns ideas into working webpages.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>Team Profile Cards — CSS Practice</p>
+    </footer>
+</body>
+</html>

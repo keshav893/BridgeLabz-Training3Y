@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Homepage</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px 6%;
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .logo {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #2563eb;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 40px 20px;
+        }
+
+        .feature {
+            flex: 1 1 250px;
+            padding: 30px 20px;
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px #00000012;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px #00000020;
+        }
+
+        .feature h2 {
+            color: #2563eb;
+        }
+
+        footer {
+            padding: 18px;
+            text-align: center;
+            background: #172554;
+            color: white;
+        }
+
+        @media (max-width: 749px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            .feature {
+                width: 100%;
+                flex: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">WebSpace</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="features">
+        <section class="feature" id="home">
+            <h2>Responsive Design</h2>
+            <p>Build webpages that adjust to different screen sizes.</p>
+        </section>
+
+        <section class="feature" id="about">
+            <h2>Modern Layout</h2>
+            <p>Use Flexbox to align content neatly and efficiently.</p>
+        </section>
+
+        <section class="feature">
+            <h2>Easy Experience</h2>
+            <p>Create clean, simple, and user-friendly interfaces.</p>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2026 WebSpace. All rights reserved.</p>
+    </footer>
+</body>
+</html>

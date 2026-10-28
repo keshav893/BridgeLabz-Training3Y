@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        .dashboard {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr);
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar main";
+        }
+
+        header {
+            grid-area: header;
+            padding: 20px 25px;
+            background: #172554;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        aside {
+            grid-area: sidebar;
+            padding: 25px 18px;
+            background: #1e293b;
+            color: white;
+        }
+
+        aside h2 {
+            font-size: 18px;
+        }
+
+        aside nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        aside a {
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.25s ease;
+        }
+
+        aside a:hover {
+            background: #334155;
+        }
+
+        aside a:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+
+        main {
+            grid-area: main;
+            min-width: 0;
+            padding: 28px;
+            animation: loadDashboard 0.8s ease-in-out;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid #dbe4ef;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 12px #00000010;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 24px #00000018;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #1d4ed8;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        .card a {
+            color: #1d4ed8;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            padding: 15px;
+            text-align: center;
+            color: #475569;
+        }
+
+        @keyframes loadDashboard {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 749px) {
+            .dashboard {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-rows: auto auto 1fr;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main";
+            }
+
+            aside {
+                padding: 15px;
+            }
+
+            aside nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            main {
+                padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            main {
+                animation: none;
+            }
+
+            .card,
+            aside a {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Responsive CSS Dashboard</h1>
+            <p>Learn, explore, and practice responsive web design.</p>
+        </header>
+
+        <aside>
+            <h2>Dashboard Menu</h2>
+            <nav aria-label="Dashboard navigation">
+                <a href="#filters">Filters</a>
+                <a href="#typography">Typography</a>
+                <a href="#media-queries">Media Queries</a>
+                <a href="#cheat-sheet">Cheat Sheet Links</a>
+            </nav>
+        </aside>
+
+        <main>
+            <h2>CSS Learning Overview</h2>
+
+            <div class="card-grid">
+                <section class="card" id="filters">
+                    <h2>Filters</h2>
+                    <p>
+                        CSS filters change the visual appearance of images
+                        and other elements.
+                    </p>
+                    <p><code>filter: grayscale(100%);</code></p>
+                </section>
+
+                <section class="card" id="typography">
+                    <h2>Typography</h2>
+                    <p>
+                        Use responsive font sizes to keep text readable
+                        on different screen sizes.
+                    </p>
+                    <p><code>font-size: clamp(1rem, 3vw, 2rem);</code></p>
+                </section>
+
+                <section class="card" id="media-queries">
+                    <h2>Media Queries</h2>
+                    <p>
+                        Media queries apply styles based on viewport
+                        dimensions and other device conditions.
+                    </p>
+                    <p><code>@media (max-width: 750px) { ... }</code></p>
+                </section>
+
+                <section class="card" id="cheat-sheet">
+                    <h2>Cheat Sheet Links</h2>
+                    <p>Visit these references to learn more about CSS.</p>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout">
+                                CSS Grid
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout">
+                                Flexbox
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries">
+                                Media Queries
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <footer>
+                <p>Responsive CSS Learning Dashboard</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
