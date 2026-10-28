@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Practice</title>
+    <style>
+        /* Element selector: applies to all paragraphs. */
+        p {
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        /* Class selector: applies to elements with class="highlight". */
+        .highlight {
+            padding: 8px;
+            background: #fef3c7;
+            border-left: 4px solid #d97706;
+        }
+
+        /* ID selector: targets the element with id="main-title". */
+        #main-title {
+            color: #1d4ed8;
+            text-align: center;
+        }
+
+        /* Attribute selector: targets links that open secure websites. */
+        a[href^="https"] {
+            color: #047857;
+            font-weight: bold;
+        }
+
+        /* Child combinator: targets only direct li children of .menu. */
+        .menu > li {
+            margin: 8px 0;
+            padding: 8px;
+            background: #dbeafe;
+        }
+
+        /* Adjacent sibling: selects the paragraph immediately after h2. */
+        h2 + p {
+            border-bottom: 2px solid #93c5fd;
+        }
+
+        /* General sibling: selects all paragraphs after h2 in its section. */
+        h2 ~ p {
+            padding-left: 10px;
+        }
+
+        /* Descendant selector: targets links anywhere inside .resources. */
+        .resources a {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+        }
+
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background: #0f172a;
+            color: white;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 22px;
+            padding: 18px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #00000010;
+        }
+
+        .resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .resources a {
+            padding: 10px;
+            background: #dcfce7;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="main-title">CSS Selectors Practice</h1>
+        <p>Examples of different CSS selector types</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Element and Class Selectors</h2>
+            <p>This paragraph is styled using the element selector.</p>
+            <p class="highlight">This paragraph uses the highlight class.</p>
+        </section>
+
+        <section>
+            <h2>ID and Attribute Selectors</h2>
+            <p>The main heading above is selected using its ID.</p>
+            <a href="https://www.example.com" target="_blank"
+               rel="noopener noreferrer">Visit Example Website</a>
+        </section>
+
+        <section>
+            <h2>Child Selector</h2>
+            <ul class="menu">
+                <li>Direct child one</li>
+                <li>Direct child two</li>
+                <li>Direct child three</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Sibling Selectors</h2>
+            <p>This is the paragraph immediately after the heading.</p>
+            <div>A separate element between paragraphs.</div>
+            <p>This paragraph is also a later sibling of the heading.</p>
+        </section>
+
+        <section>
+            <h2>Descendant Selector</h2>
+            <div class="resources">
+                <a href="https://developer.mozilla.org/">MDN Web Docs</a>
+                <a href="https://www.w3.org/">W3C Website</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Practice CSS selectors with real HTML elements.</p>
+    </footer>
+</body>
+</html>

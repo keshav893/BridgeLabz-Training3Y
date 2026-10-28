@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Button Collection</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background: #172554;
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .button-card {
+            width: min(100%, 800px);
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px #00000012;
+        }
+
+        .button-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 7px #00000015;
+            transition: background 0.25s ease,
+                        color 0.25s ease,
+                        transform 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px #00000020;
+        }
+
+        .btn:active:not(:disabled) {
+            transform: scale(0.96);
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 4px;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary {
+            background: #475569;
+            color: white;
+        }
+
+        .secondary:hover {
+            background: #334155;
+        }
+
+        .outline {
+            border-color: #2563eb;
+            background: white;
+            color: #1d4ed8;
+        }
+
+        .outline:hover {
+            background: #dbeafe;
+        }
+
+        .btn:disabled {
+            background: #cbd5e1;
+            color: #64748b;
+            border-color: #cbd5e1;
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        .note {
+            margin-top: 25px;
+            color: #475569;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Styled Button Collection</h1>
+        <p>Different button styles using CSS</p>
+    </header>
+
+    <main>
+        <section class="button-card">
+            <h2>Choose a Button Style</h2>
+            <p>Hover, click, or use the Tab key to test the effects.</p>
+
+            <div class="button-list">
+                <button class="btn primary" type="button">Primary</button>
+                <button class="btn secondary" type="button">Secondary</button>
+                <button class="btn outline" type="button">Outline</button>
+                <button class="btn" type="button" disabled>Disabled</button>
+            </div>
+
+            <p class="note">
+                <strong>:hover</strong> changes the appearance.
+                <strong>:active</strong> shows the pressed state.
+                <strong>:focus-visible</strong> highlights keyboard focus.
+                <strong>:disabled</strong> styles an unavailable button.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Button Styling Practice</p>
+    </footer>
+</body>
+</html>

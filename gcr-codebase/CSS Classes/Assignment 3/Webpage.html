@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Classes Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e3a8a;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px 15px;
+        }
+
+        .example {
+            flex: 1 1 220px;
+            max-width: 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px #00000012;
+        }
+
+        a {
+            color: #2563eb;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        a:hover {
+            color: #dc2626;
+        }
+
+        a:active {
+            color: #7e22ce;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:focus {
+            outline: 3px solid #93c5fd;
+            outline-offset: 3px;
+        }
+
+        button:active {
+            background: #15803d;
+            transform: scale(0.96);
+        }
+
+        li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background: #f8fafc;
+        }
+
+        li:nth-child(odd) {
+            background: #dbeafe;
+        }
+
+        li:nth-child(even) {
+            background: #dcfce7;
+        }
+
+        footer {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Pseudo-Classes</h1>
+        <p>Move the pointer or click to see different states.</p>
+    </header>
+
+    <main>
+        <section class="example">
+            <h2>Link States</h2>
+            <a href="#link-example">Hover over this link</a>
+            <p><strong>:hover</strong> changes the link color when the pointer is over it.</p>
+            <p><strong>:active</strong> changes its color while it is being clicked.</p>
+        </section>
+
+        <section class="example">
+            <h2>Button States</h2>
+            <button type="button">Try This Button</button>
+            <p><strong>:focus</strong> adds an outline when the button receives focus.</p>
+            <p><strong>:active</strong> changes the button while it is pressed.</p>
+        </section>
+
+        <section class="example">
+            <h2>List Items</h2>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+                <li>Fourth item</li>
+            </ul>
+            <p><strong>:nth-child()</strong> selects items by their position in the list.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Practice Page</p>
+    </footer>
+</body>
+</html>

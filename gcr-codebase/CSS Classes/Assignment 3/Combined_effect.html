@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined CSS Effects</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background: #172554;
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .effects-container {
+            width: min(100%, 950px);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .effect-card {
+            flex: 1 1 220px;
+            min-width: 0;
+            padding: 25px 18px;
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px #00000012;
+        }
+
+        .effect-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px #2563eb35;
+            transition: transform 0.3s ease-in-out,
+                        background 0.3s ease-in-out,
+                        box-shadow 0.3s ease-in-out;
+        }
+
+        .effect-button:hover {
+            background: #7c3aed;
+            transform: scale(1.08);
+            box-shadow: 0 8px 16px #7c3aed35;
+        }
+
+        .effect-button:active {
+            transform: scale(0.96);
+        }
+
+        .effect-button:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 4px;
+        }
+
+        .green-button {
+            background: #15803d;
+            box-shadow: 0 4px 8px #15803d35;
+        }
+
+        .green-button:hover {
+            background: #166534;
+        }
+
+        .orange-button {
+            background: #ea580c;
+            box-shadow: 0 4px 8px #ea580c35;
+        }
+
+        .orange-button:hover {
+            background: #c2410c;
+        }
+
+        .description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .effect-button {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Combined CSS Effects</h1>
+        <p>Pseudo-classes, transitions, transformations, and shadows</p>
+    </header>
+
+    <main>
+        <div class="effects-container">
+            <section class="effect-card">
+                <h2>Scale Effect</h2>
+                <p class="description">
+                    The button grows slightly when hovered over.
+                </p>
+                <button class="effect-button" type="button">
+                    Hover Me
+                </button>
+            </section>
+
+            <section class="effect-card">
+                <h2>Color Effect</h2>
+                <p class="description">
+                    The background color changes smoothly on hover.
+                </p>
+                <button class="effect-button green-button" type="button">
+                    Explore
+                </button>
+            </section>
+
+            <section class="effect-card">
+                <h2>Shadow Effect</h2>
+                <p class="description">
+                    The shadow becomes stronger when the button is hovered.
+                </p>
+                <button class="effect-button orange-button" type="button">
+                    Discover
+                </button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>CSS interactions without JavaScript</p>
+    </footer>
+</body>
+</html>

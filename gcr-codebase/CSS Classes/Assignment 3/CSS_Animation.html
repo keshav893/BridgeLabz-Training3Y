@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background: #1e1b4b;
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 45px;
+            padding: 35px 20px;
+        }
+
+        .animation-card {
+            width: 230px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px #00000012;
+            text-align: center;
+        }
+
+        .moving-box {
+            width: 65px;
+            height: 65px;
+            border-radius: 10px;
+            background: #2563eb;
+            animation: moveBox 2s ease-in-out infinite alternate;
+        }
+
+        .bouncing-ball {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #f97316;
+            animation: bounce 1s ease-in-out infinite;
+            animation-delay: 0.3s;
+        }
+
+        .color-text {
+            font-size: 22px;
+            font-weight: bold;
+            animation: changeColor 3s ease-in-out infinite alternate;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes moveBox {
+            from {
+                transform: translateX(-45px) rotate(0deg);
+            }
+            to {
+                transform: translateX(45px) rotate(180deg);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-45px);
+            }
+        }
+
+        @keyframes changeColor {
+            0% {
+                color: #2563eb;
+                transform: scale(1);
+            }
+            100% {
+                color: #db2777;
+                transform: scale(1.15);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Animation Demonstration</h1>
+        <p>Three examples created using CSS keyframes</p>
+    </header>
+
+    <main>
+        <section class="animation-card">
+            <h2>Moving Box</h2>
+            <div class="moving-box" aria-label="Animated moving box"></div>
+            <p>Moves and rotates in alternate directions.</p>
+        </section>
+
+        <section class="animation-card">
+            <h2>Bouncing Ball</h2>
+            <div class="bouncing-ball" aria-label="Animated bouncing ball"></div>
+            <p>Bounces repeatedly with smooth timing.</p>
+        </section>
+
+        <section class="animation-card">
+            <h2>Colorful Text</h2>
+            <div class="color-text">CSS Animation</div>
+            <p>Changes color and size continuously.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Animations created with @keyframes and CSS.</p>
+    </footer>
+</body>
+</html>

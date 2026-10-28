@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Sizing Comparison</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background: #0f172a;
+            color: white;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .comparison {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .box-card {
+            flex: 1 1 300px;
+            min-width: 0;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px #00000012;
+        }
+
+        .demo-box {
+            width: 100%;
+            max-width: 320px;
+            height: 180px;
+            margin: 20px auto;
+            padding: 25px;
+            border: 8px solid #1d4ed8;
+            background: #bfdbfe;
+            color: #172554;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .content-box {
+            box-sizing: content-box;
+            /* Width applies to content only.
+               Padding and border increase total width. */
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            /* Width includes content, padding, and border. */
+            border-color: #15803d;
+            background: #bbf7d0;
+            color: #14532d;
+        }
+
+        .explanation {
+            padding: 15px;
+            margin-top: 25px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        code {
+            background: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 650px) {
+            .comparison {
+                flex-direction: column;
+            }
+
+            .demo-box {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Box-Sizing Comparison</h1>
+        <p>Understanding how CSS calculates an element's width</p>
+    </header>
+
+    <main>
+        <div class="comparison">
+            <section class="box-card">
+                <h2>1. Content-Box</h2>
+                <div class="demo-box content-box">
+                    Content-box
+                    <br>
+                    Width: 100%
+                    <br>
+                    Padding: 25px
+                </div>
+                <p>
+                    The declared width applies only to the content.
+                    Padding and borders are added outside it, so the
+                    total rendered width becomes larger.
+                </p>
+            </section>
+
+            <section class="box-card">
+                <h2>2. Border-Box</h2>
+                <div class="demo-box border-box">
+                    Border-box
+                    <br>
+                    Width: 100%
+                    <br>
+                    Padding: 25px
+                </div>
+                <p>
+                    The declared width includes content, padding,
+                    and borders. The total rendered width stays
+                    within the specified width.
+                </p>
+            </section>
+        </div>
+
+        <section class="explanation">
+            <h2>Key Difference</h2>
+            <p>
+                With <code>content-box</code>, total width equals content
+                width + left and right padding + left and right borders.
+            </p>
+            <p>
+                With <code>border-box</code>, total width already includes
+                padding and borders. This makes layout sizing easier to manage.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Box Model Practice</p>
+    </footer>
+</body>
+</html>

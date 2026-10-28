@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Components</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            color: #1e293b;
+            background: linear-gradient(135deg, #dbeafe, #fce7f3);
+        }
+
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background: #1e3a8a;
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
+        }
+
+        .ui-card {
+            width: min(100%, 600px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 28px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px #1e293b20;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            min-width: 0;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+            background: white;
+        }
+
+        input:focus, select:focus {
+            outline: 3px solid #bfdbfe;
+            border-color: #2563eb;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.25s ease,
+                        transform 0.25s ease;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        button:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 3px;
+        }
+
+        .secondary {
+            background: #475569;
+        }
+
+        .secondary:hover {
+            background: #334155;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .message {
+            margin: 0;
+            padding: 12px;
+            background: #eff6ff;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 480px) {
+            .ui-card {
+                padding: 18px;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .button-row button {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Interface Components</h1>
+        <p>A simple collection of common UI elements</p>
+    </header>
+
+    <main>
+        <section class="ui-card">
+            <h2>Explore Dashboard</h2>
+
+            <form action="#" method="get">
+                <label for="search">Search for something</label>
+                <div class="search-row">
+                    <input type="search" id="search" name="search"
+                           placeholder="Enter a keyword">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+
+            <div class="field">
+                <label for="category">Choose a category</label>
+                <select id="category" name="category">
+                    <option value="">Select a category</option>
+                    <option value="technology">Technology</option>
+                    <option value="education">Education</option>
+                    <option value="design">Design</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+
+            <div class="button-row">
+                <button type="button">Get Started</button>
+                <button type="button" class="secondary">Learn More</button>
+            </div>
+
+            <p class="message">
+                Tip: Select a field or hover over a button to see its CSS effect.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Simple and responsive UI design</p>
+    </footer>
+</body>
+</html>
