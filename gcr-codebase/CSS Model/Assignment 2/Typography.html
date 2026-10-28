@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography and Text Styling</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 30px;
+        }
+
+        article {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.3px;
+            text-align: justify;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 32px;
+        }
+
+        .serif {
+            font-family: Georgia, serif;
+        }
+
+        .sans-serif {
+            font-family: Arial, sans-serif;
+        }
+
+        .monospace {
+            font-family: monospace;
+        }
+
+        article p:first-of-type::first-letter {
+            font-size: 40px;
+            color: blue;
+            font-weight: bold;
+        }
+
+        article p:first-of-type::first-line {
+            font-weight: bold;
+        }
+
+        mark {
+            background: #fde68a;
+            color: #92400e;
+        }
+
+        strong {
+            color: red;
+        }
+
+        em {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1>Typography and Text Styling</h1>
+
+        <p class="serif">
+            Typography makes a webpage attractive and readable.
+            Different font families, sizes and weights help present
+            information clearly to readers.
+        </p>
+
+        <p class="sans-serif">
+            This paragraph uses Arial, a sans-serif font.
+            It demonstrates a different font family and style.
+        </p>
+
+        <p class="monospace">
+            This paragraph uses a monospace font.
+            Each character occupies equal horizontal space.
+        </p>
+
+        <p>
+            <mark>Important information</mark> can be highlighted.
+            <strong>Strong text</strong> shows importance, while
+            <em>emphasized text</em> adds emphasis.
+        </p>
+    </article>
+
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows and Depth</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 2px 2px 4px gray;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .card {
+            flex: 1 1 200px;
+            max-width: 280px;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px #00000025;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:nth-child(2) {
+            box-shadow: 0 8px 18px #2563eb50;
+        }
+
+        .card:nth-child(3) {
+            box-shadow: 5px 8px 0 #cbd5e1;
+        }
+
+        .card h2 {
+            text-shadow: 2px 2px 3px #94a3b8;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px #00000035;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shadows and Depth</h1>
+
+    <div class="container">
+        <div class="card">
+            <h2>Profile One</h2>
+            <p>Simple box shadow.</p>
+        </div>
+
+        <div class="card">
+            <h2>Profile Two</h2>
+            <p>Soft blue shadow.</p>
+        </div>
+
+        <div class="card">
+            <h2>Profile Three</h2>
+            <p>Offset shadow effect.</p>
+        </div>
+    </div>
+
+</body>
+</html>

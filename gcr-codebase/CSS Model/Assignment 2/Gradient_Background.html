@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Background</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 0;
+            background: #172554;
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            margin: 30px;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            border-radius: 12px;
+        }
+
+        .linear {
+            background: linear-gradient(120deg, #2563eb, #06b6d4);
+            background-attachment: fixed;
+        }
+
+        .radial {
+            background: radial-gradient(circle, #f97316, #7c3aed);
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 12px 0;
+            background: #172554;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Gradient Webpage</h2>
+    </header>
+
+    <main>
+        <section class="linear">
+            <h1>Linear Gradient</h1>
+            <p>Colors blend along a straight line.</p>
+        </section>
+
+        <section class="radial">
+            <h1>Radial Gradient</h1>
+            <p>Colors spread outward from the center.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Gradient Demonstration</p>
+    </footer>
+
+</body>
+</html>

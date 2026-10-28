@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Selectors</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+        }
+
+        /* Attribute selector */
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid blue;
+        }
+
+        /* Attribute selector for HTTPS links */
+        a[href^="https"] {
+            color: green;
+        }
+
+        /* Pseudo-class: hover */
+        li:hover {
+            background: lightblue;
+        }
+
+        /* Pseudo-class: focus */
+        input:focus {
+            outline: 2px solid orange;
+        }
+
+        /* Pseudo-class: nth-child */
+        li:nth-child(2) {
+            color: red;
+        }
+
+        /* Child combinator */
+        .parent > p {
+            color: purple;
+        }
+
+        /* Adjacent sibling combinator */
+        h4 + p {
+            background: lightyellow;
+        }
+
+        /* General sibling combinator */
+        h4 ~ p {
+            padding: 5px;
+        }
+
+        /* Descendant combinator */
+        .parent span {
+            color: blue;
+        }
+
+        /* Pseudo-elements */
+        li::before {
+            content: "✓ ";
+            color: green;
+        }
+
+        li::after {
+            content: " •";
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Advanced CSS Selectors</h1>
+
+        <label for="username">Name:</label>
+        <input type="text" id="username" placeholder="Enter your name">
+
+        <p>
+            Visit <a href="https://example.com">Example Website</a>
+        </p>
+
+        <h3>Topics</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Flexbox</li>
+            <li>Grid</li>
+        </ul>
+
+        <div class="parent">
+            <h4>Combinator Examples</h4>
+            <p>Direct child paragraph.</p>
+            <p>Another paragraph.</p>
+
+            <div>
+                <span>Descendant selector example.</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

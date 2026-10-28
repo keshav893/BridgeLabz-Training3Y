@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outline and Focus Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 30px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #00000015;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px #00000010;
+            font: inherit;
+        }
+
+        input:focus {
+            outline: 3px solid blue;
+            outline-offset: 3px;
+        }
+
+        textarea:focus {
+            outline: 3px dashed orange;
+            outline-offset: 3px;
+        }
+
+        button {
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center;">Contact Form</h1>
+
+    <form class="form-container">
+        <label for="name">
+            Name
+            <input type="text" id="name" placeholder="Enter your name">
+        </label>
+
+        <label for="email">
+            Email
+            <input type="email" id="email" placeholder="Enter your email">
+        </label>
+
+        <label for="message">
+            Message
+            <textarea id="message" rows="4"
+                      placeholder="Write your message"></textarea>
+        </label>
+
+        <button type="button">Submit</button>
+    </form>
+
+</body>
+</html>

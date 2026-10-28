@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .box-model {
+            width: 280px;
+            margin: 20px;
+            padding: 25px;
+            border: 8px solid blue;
+            outline: 3px dashed orange;
+            background: lightgreen;
+            text-align: center;
+        }
+
+        .content {
+            background: lightyellow;
+            padding: 10px;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+        }
+
+        .description {
+            max-width: 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Box Model</h1>
+
+    <div class="container">
+        <div>
+            <div class="box-model">
+                <div class="content">Content Area</div>
+                <p>Padding: 25px</p>
+                <p>Border: 8px</p>
+                <p>Margin: 20px</p>
+            </div>
+            <p style="text-align:center;">Default content-box</p>
+        </div>
+
+        <div>
+            <div class="box-model border-box">
+                <div class="content">Content Area</div>
+                <p>Padding: 25px</p>
+                <p>Border: 8px</p>
+                <p>Margin: 20px</p>
+            </div>
+            <p style="text-align:center;">border-box sizing</p>
+        </div>
+
+        <div class="description">
+            <h2>Box Model Parts</h2>
+            <p><strong>Content:</strong> Actual text or element.</p>
+            <p><strong>Padding:</strong> Space inside the border.</p>
+            <p><strong>Border:</strong> Edge around the content and padding.</p>
+            <p><strong>Margin:</strong> Space outside the border.</p>
+        </div>
+    </div>
+
+</body>
+</html>
