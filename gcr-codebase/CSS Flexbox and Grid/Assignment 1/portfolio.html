@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h2>Keshav Pal</h2>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="about" id="about">
+            <h1>About Me</h1>
+            <p>
+                Hello! I am a B.Tech student interested in Artificial
+                Intelligence, Data Science and Web Development.
+                I enjoy learning new technologies and building
+                useful projects.
+            </p>
+        </section>
+
+        <section class="profile" id="gallery">
+            <img src="https://placehold.co/350x250"
+                 alt="Profile placeholder">
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2026 Keshav Pal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e293b;
+    color: white;
+    padding: 20px 8%;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 70px 8%;
+    min-height: 70vh;
+}
+
+.about,
+.profile {
+    flex: 1;
+}
+
+.about h1 {
+    margin-bottom: 20px;
+    color: #2563eb;
+}
+
+.about p {
+    line-height: 1.8;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+}
+
+footer {
+    text-align: center;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+}
+
+@media (max-width: 700px) {
+    .header,
+    .main-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .main-content {
+        gap: 30px;
+    }
+}
