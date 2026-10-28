@@ -1,0 +1,65 @@
+
+"use strict";
+
+const rawData = [
+    '{"user":"Alex","age":25}',
+    '{"id":2}',
+    '{invalid}',
+    '{"user":"Mina","age":"22"}'
+];
+
+const cleanData = [];
+const errors = [];
+const under18Users = [];
+
+console.log("JSON AUDIT REPORT\n");
+
+for (let i = 0; i < rawData.length; i++) {
+    try {
+        const parsedData = JSON.parse(rawData[i]);
+
+        if (
+            !Object.prototype.hasOwnProperty.call(parsedData, "user") ||
+            !Object.prototype.hasOwnProperty.call(parsedData, "age")
+        ) {
+            throw new Error("Missing user or age key");
+        }
+
+        const age = Number(parsedData.age);
+
+        if (
+            typeof parsedData.user !== "string" ||
+            parsedData.user.trim() === "" ||
+            !Number.isFinite(age) ||
+            age < 0
+        ) {
+            throw new Error("Invalid user or age value");
+        }
+
+        const userRecord = {
+            user: parsedData.user,
+            age: age
+        };
+
+        cleanData.push(userRecord);
+
+        if (age < 18) {
+            under18Users.push(userRecord);
+        }
+
+        console.log(`Line ${i + 1}: Valid JSON`);
+    } catch (error) {
+        errors.push({
+            line: i + 1,
+            message: error.message
+        });
+
+        console.log(`Line ${i + 1}: Error - ${error.message}`);
+    }
+}
+
+console.log("\nClean Data:", cleanData);
+console.log("Error Report:", errors);
+console.log("Users Under 18:", under18Users);
+console.log("Valid Entries:", cleanData.length);
+console.log("Invalid Entries:", errors.length);
